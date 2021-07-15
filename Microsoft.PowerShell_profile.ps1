@@ -13,12 +13,13 @@ function Update-ScoopApps {
     scoop update @ScoopArgs
     scoop cleanup @ScoopArgs -k
 }
-function Set-Journal ([string] $Date = (Get-Date -Format 'yyyy-MM-dd') ) {
-    $JournalPath = Join-Path $env:JOURNAL "$Date.md"
+function Set-Journal ([datetime] $Date = (Get-Date) ) {
+    $ISODate = $Date.ToString('yyyy-MM-dd')
+    $JournalPath = Join-Path $env:JOURNAL "$ISODate.md"
     $Action = if (Test-Path $JournalPath) { 'Update' } else { 'Add' }
     vim $JournalPath
     git -C $env:JOURNAL add $JournalPath
-    git -C $env:JOURNAL commit -m "$Action $Date"
+    git -C $env:JOURNAL commit -m "$Action $ISODate"
 }
 function Send-Journal { git -C $env:JOURNAL push }
 function Measure-Duration (
