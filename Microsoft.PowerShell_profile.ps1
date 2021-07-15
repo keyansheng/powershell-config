@@ -50,3 +50,17 @@ function New-VideoClipYouTube (
     New-VideoClip "$TempFile.webm" $StartTime $EndTime $DestinationFile
 }
 Set-PSReadLineKeyHandler -Key Tab -Function MenuComplete
+Set-Alias gsl Get-SymbolicLink
+Set-Alias gsld Get-SymbolicLinkDirectory
+Set-Alias gj Get-Junction
+Set-Alias nsl New-SymbolicLink
+Set-Alias nsld New-SymbolicLinkDirectory
+Set-Alias nj New-Junction
+Set-Alias hi Hide-Item
+Set-Alias shi Show-Item
+Set-Alias udsa Update-ScoopApps
+Set-Alias sj Set-Journal
+Set-Alias sdj Send-Journal
+Set-Alias msd Measure-Duration
+Set-Alias nvc New-VideoClip
+Set-Alias nvcy New-VideoClipYouTube
