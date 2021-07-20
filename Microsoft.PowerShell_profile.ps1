@@ -38,7 +38,7 @@ function New-VideoClip (
     [string] $EndTime,
     [string] $DestinationFile = 'video.mp4'
 ) {
-    ffmpeg -ss $StartTime -i $SourceFile -t (Measure-Duration $EndTime $StartTime) $DestinationFile -y
+    ffmpeg -ss $StartTime -i $SourceFile -t (Measure-Duration $EndTime $StartTime) $DestinationFile
 }
 function New-VideoClipYouTube (
     [string] $Url,
