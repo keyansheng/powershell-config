@@ -51,4 +51,5 @@ function New-VideoClipYouTube (
     New-VideoClip "$TempFile.webm" $StartTime $EndTime $DestinationFile
 }
 Set-PSReadLineKeyHandler -Key Tab -Function MenuComplete
+Set-PSReadLineOption -HistorySavePath $HOME\history.ps1
 Remove-Item Alias:\* -Force -Exclude cd
