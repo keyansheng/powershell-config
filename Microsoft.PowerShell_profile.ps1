@@ -1,10 +1,4 @@
 $PSDefaultParameterValues['*:Encoding'] = 'Default'
-function Get-SymbolicLink { cmd /c dir /al /s | Where-Object { $_ -match 'symlink' } }
-function Get-SymbolicLinkDirectory { cmd /c dir /al /s | Where-Object { $_ -match 'symlinkd' } }
-function Get-Junction { cmd /c dir /al /s | Where-Object { $_ -match 'junction' } }
-function New-SymbolicLink { cmd /c mklink @args }
-function New-SymbolicLinkDirectory { cmd /c mklink /d @args }
-function New-Junction { cmd /c mklink /j @args }
 function Hide-Item { (Get-Item @args).Attributes += 'Hidden' }
 function Show-Item { (Get-Item @args -Force).Attributes -= 'Hidden' }
 function Update-ScoopApps {
