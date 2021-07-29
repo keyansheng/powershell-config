@@ -15,7 +15,6 @@ function Set-Journal ([datetime] $Date = (Get-Date) ) {
     git -C $env:JOURNAL add $JournalPath
     git -C $env:JOURNAL commit -m "$Action $ISODate"
 }
-function Send-Journal { git -C $env:JOURNAL push }
 function Measure-Duration (
     [string]$EndTime,
     [string]$StartTime = 0
