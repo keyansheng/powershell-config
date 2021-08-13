@@ -45,4 +45,3 @@ function New-VideoClipYouTube (
 }
 Set-PSReadLineKeyHandler -Key Tab -Function MenuComplete
 Set-PSReadLineOption -HistorySavePath $env:TEMP\history.ps1
-Remove-Item Alias:\* -Force -Exclude cd
