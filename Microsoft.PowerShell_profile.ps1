@@ -1,4 +1,5 @@
 $PSDefaultParameterValues['*:Encoding'] = 'Default'
+function Invoke-CMD { cmd /c @args }
 function Hide-Item { (Get-Item @args).Attributes += 'Hidden' }
 function Show-Item { (Get-Item @args -Force).Attributes -= 'Hidden' }
 function Update-ScoopApps {
@@ -45,3 +46,4 @@ function New-VideoClipYouTube (
 }
 Set-PSReadLineKeyHandler -Key Tab -Function MenuComplete
 Set-PSReadLineOption -HistorySavePath $env:TEMP\history.ps1
+Set-Alias c Invoke-CMD
