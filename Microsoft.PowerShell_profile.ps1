@@ -13,8 +13,11 @@ function Set-Journal ([datetime] $Date = (Get-Date) ) {
     $JournalPath = Join-Path $env:JOURNAL "$ISODate.md"
     $Action = if (Test-Path $JournalPath) { 'Update' } else { 'Add' }
     vim $JournalPath
-    git -C $env:JOURNAL add $JournalPath
-    git -C $env:JOURNAL commit -m "$Action $ISODate"
+    prettier -c $JournalPath
+    if (!$LASTEXITCODE) {
+        git -C $env:JOURNAL add $JournalPath
+        git -C $env:JOURNAL commit -m "$Action $ISODate"
+    }
 }
 Set-PSReadLineKeyHandler -Key Tab -Function MenuComplete
 Set-PSReadLineOption -HistorySavePath $env:TEMP\history.ps1
