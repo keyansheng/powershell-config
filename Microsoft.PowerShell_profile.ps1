@@ -14,6 +14,7 @@ function Set-Journal ([datetime] $Date = (Get-Date) ) {
     $Action = if (Test-Path $JournalPath) { 'Update' } else { 'Add' }
     vim $JournalPath
     prettier -c $JournalPath
+    Write-Host
     if (!$LASTEXITCODE) {
         git -C $env:JOURNAL add $JournalPath
         git -C $env:JOURNAL commit -m "$Action $ISODate"
