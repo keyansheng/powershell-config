@@ -12,7 +12,7 @@ function Set-Journal ([datetime] $Date = (Get-Date) ) {
     $ISODate = $Date.ToString('yyyy-MM-dd')
     $JournalPath = Join-Path $env:JOURNAL "$ISODate.md"
     $Action = if (Test-Path $JournalPath) { 'Update' } else { 'Add' }
-    $env:EDITOR $JournalPath
+    & $env:EDITOR $JournalPath
     prettier -c $JournalPath
     Write-Host
     if (!$LASTEXITCODE) {
